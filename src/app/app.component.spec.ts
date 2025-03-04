@@ -1,6 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { By } from '@angular/platform-browser';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { Component } from '@angular/core';
+
+@Component({
+    selector: 'app-header',
+    template: '',
+})
+class FakeHeaderComponent {}
 
 describe('AppComponent', () => {
     beforeEach(async () => {
@@ -9,6 +17,15 @@ describe('AppComponent', () => {
         });
 
         await TestBed.compileComponents();
+
+        TestBed.overrideComponent(AppComponent, {
+            remove: {
+                imports: [HeaderComponent],
+            },
+            add: {
+                imports: [FakeHeaderComponent],
+            },
+        });
     });
 
     it('deve renderizar o componente header', () => {
