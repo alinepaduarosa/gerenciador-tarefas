@@ -18,8 +18,6 @@ describe('HeaderComponent', () => {
 
     it('deve renderizar o título corretamente', () => {
         const h1DebugEl = fixture.debugElement.query(By.css('h1'));
-        expect(h1DebugEl.nativeElement.textContent).toBe(
-            'Gerenciador de Tarefas'
-        );
+        expect(h1DebugEl.nativeElement.textContent).toBe('Gerenciador de Tarefas');
     });
 });
